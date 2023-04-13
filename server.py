@@ -1,7 +1,7 @@
 from wsgiref.simple_server import make_server, WSGIServer
 from urllib.parse import parse_qs
 from socketserver import ThreadingMixIn
-import checker
+import problem
 import datetime
 
 def application(environ, start_response):
@@ -13,14 +13,14 @@ def application(environ, start_response):
             keep_blank_values = True)
         name = data['name'][0]
         code = data['code'][0]
-        result = checker.check(code)
-        print(f'Date and Time: {str(datetime.datetime.now())}, Name: {name}, Verdict: {result[0]}')
+        result = problem.judge(code)
+        print(f'Date and Time: {str(datetime.datetime.now())}, Name: {name}, Score: {result[0]}')
         with open('pages/result.html', 'r') as f:
             response = f.read().format(name, *result).encode()
         status = '200 OK'
     elif path == '/' and method == 'GET':
         with open('pages/submission.html', 'r') as f:
-            response = f.read().encode()
+            response = f.read().replace('{}', problem.describe()).encode()
         status = '200 OK'
     else:
         response = 'Page Not Found'.encode()
