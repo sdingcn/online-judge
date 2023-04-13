@@ -3,15 +3,40 @@
     <head>
         <meta charset="utf-8">
         <title>Online Judge</title>
+        <style>
+            form.table {
+                display: table;
+            }
+            div.table-row {
+                display: table-row;
+                margin-bottom: 10px;
+            }
+            label, input {
+                display: table-cell;
+            }
+        </style>
     </head>
     <body>
         <header>
-            <h2>Code to be submitted:</h2>
+            <h2>Enter your name and your code, and then submit to see the result.</h2>
         </header>
         <main>
-            <form method="post">
-                <textarea name="code" rows="10" cols="20"></textarea>
-                <input type="submit" value="Submit">
+            <form method="post" class="table">
+                <div class="table-row">
+                    <label for="name">Name:</label>
+                </div>
+                <div class="table-row">
+                    <input type="text" name="name" id="name">
+                </div>
+                <div class="table-row">
+                    <label for="code">Code:</label>
+                </div>
+                <div class="table-row">
+                    <textarea name="code" id="code" rows="10" cols="20"></textarea>
+                </div>
+                <div class="table-row">
+                    <input type="submit" value="Submit">
+                </div>
             </form>
         </main>
     </body>
