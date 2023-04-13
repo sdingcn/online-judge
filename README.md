@@ -12,6 +12,8 @@ Provide two functions in `problem.py`.
 
 **It's your responsibility to ensure your `describe` and `judge` functions don't interfere with each other when executed concurrently.**
 
+`problem.py` contains an example for the sorting problem.
+
 ## Start/stop the web server
 Run `python3 server.py` to start the server on `localhost:8008`.
 

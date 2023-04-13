@@ -8,7 +8,7 @@ import hashlib
 def describe() -> str:
     return '''\
 Use C++11 to implement sorting.
-Input: Integers a[1] a[2] ... a[n] separated by whitespaces (n >= 1, -100 <= a[i] <= 100).
+Input: Integers a[1] a[2] ... a[n] separated by whitespaces (1 <= n <= 100, -100 <= a[i] <= 100).
 Output: Sorted integers separated by whitespaces.
 '''
 
