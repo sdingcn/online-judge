@@ -6,6 +6,7 @@ import datetime
 import threading
 import time
 import re
+import sys
 
 L = threading.Lock()
 
@@ -52,6 +53,15 @@ class ThreadingWSGIServer(ThreadingMixIn, WSGIServer):
 
 if __name__ == '__main__':
     try:
-        make_server('localhost', 8008, application, ThreadingWSGIServer).serve_forever()
+        if len(sys.argv) == 1:
+            host = 'localhost'
+            port = 8008
+        elif len(sys.argv) == 3:
+            host = sys.argv[1]
+            port = int(sys.argv[2])
+        else:
+            sys.exit(f'Unrecognized number of command line arguments.\nUsage: python3 {sys.argv[0]} [host="localhost"] [port=8008]')
+        print(f'Starting server on {host}:{port}.')
+        make_server(host, port, application, ThreadingWSGIServer).serve_forever()
     except KeyboardInterrupt:
         print('Server stopped.')
