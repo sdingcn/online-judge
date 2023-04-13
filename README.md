@@ -1,3 +1,3 @@
 # online-judge
 
-a very simple online judge template without any third-party frameworks
+Run `python3 server.py` to start the web server on `localhost:8008`.
