@@ -13,7 +13,7 @@ def check(code):
             f.write(code)
         output = run_and_get_output(['clang++', f'{name}.cpp', '-o', f'{name}.executable']).strip()
         if output != '':
-            return 'Compilation error'
+            return 'Compilation error: ' + output[:100] + '...'
         def check_io(stdin, stdout):
             if run_and_get_output([f'./{name}.executable'], stdin).strip() == stdout.strip():
                 return True
