@@ -65,3 +65,4 @@ if __name__ == '__main__':
         make_server(host, port, application, ThreadingWSGIServer).serve_forever()
     except KeyboardInterrupt:
         print('Server stopped.')
+        sys.exit(0)
