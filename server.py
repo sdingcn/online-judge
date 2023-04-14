@@ -11,7 +11,7 @@ import sys
 L = threading.Lock()
 
 def log(timestamp: str, name: str, code: str, score: str, details: str) -> None:
-    underscored_name = re.sub(r"\s+", "_", name)
+    underscored_name = re.sub(r'\s+', '_', name)
     prefix = f'logs/{timestamp}-{underscored_name}-{score}'
     with open(prefix + '.code', 'w') as f:
         f.write(code)
