@@ -12,11 +12,11 @@ L = threading.Lock()
 
 def log(timestamp: str, name: str, code: str, score: str, details: str) -> None:
     underscored_name = re.sub(r'\s+', '_', name)
-    prefix = f'logs/{timestamp}-{underscored_name}-{score}'
+    prefix = f'logs/{timestamp}-{underscored_name}'
     with open(prefix + '.code', 'w') as f:
         f.write(code)
-    with open(prefix + '.details', 'w') as f:
-        f.write(details)
+    with open(prefix + '.result', 'w') as f:
+        f.write(f'score={score},details={details}')
 
 def application(environ, start_response):
     path = environ['PATH_INFO']

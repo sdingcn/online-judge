@@ -44,26 +44,26 @@ T = [
     ('0 0 0 0 -100', '-100 0 0 0 0')
 ]
 
-def run_test(stdin: str, stdout: str) -> str:
+def run_test(name: str, stdin: str, stdout: str) -> str:
     try:
         if execute([f'./{name}.executable'], 1, stdin).stdout.strip() == stdout.strip():
             return 'AC'
         else:
             return 'WA/RE/MLE'
-    except TimeoutExpired:
+    except subprocess.TimeoutExpired:
         return 'TLE'
 
 def judge(code: str) -> (str, str):
     try:
+        name = time.time()
         n = len(T)
         if not security_check(code):
             return (f'0/{n}', 'Security check not passed')
-        name = time.time()
         with open(f'{name}.cpp', 'w') as f:
             f.write(code)
         try:
             err = execute(['clang++', '-std=c++11', '-o', f'{name}.executable', f'{name}.cpp']).stderr
-        except TimeoutExpired:
+        except subprocess.TimeoutExpired:
             return (f'0/{n}', 'Compilation timed out')
         if err != '':
             return (f'0/{n}', 'Compilation Error: ' + err[:100])
@@ -71,7 +71,7 @@ def judge(code: str) -> (str, str):
         score = 0
         for i, o in T:
             cnt += 1
-            r = run_test(i, o)
+            r = run_test(name, i, o)
             if r == 'AC':
                 score += 1
             elif r == 'WA/RE/MLE':

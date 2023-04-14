@@ -22,4 +22,4 @@ Run `python3 server.py [host] [port]` to start the server on `[host]:[port]`.
 Hit `Ctrl-C` to stop the server.
 
 ## Inspect logs
-For each submission, `logs/{timestamp}-{underscored_name}-{score}.code` contains the code, and `logs/{timestamp}-{underscored_name}-{score}.details` contains the judging details.
+For each submission, `logs/{timestamp}-{underscored_name}.code` contains the code, and `logs/{timestamp}-{underscored_name}.result` contains the score and judging details.
