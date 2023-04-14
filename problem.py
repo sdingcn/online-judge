@@ -7,11 +7,9 @@ import re
 
 def describe() -> str:
     return '''\
-Use C++11 to implement sorting.
+Use C++11 to implement sorting (1 second time limit, no space limit).
 Input: Integers a[1] a[2] ... a[n] separated by whitespaces (1 <= n <= 100, -100 <= a[i] <= 100).
 Output: Sorted integers separated by whitespaces.
-Time limit: 1 second.
-Space limit: no limit.
 '''
 
 def security_check(code: str) -> bool:
