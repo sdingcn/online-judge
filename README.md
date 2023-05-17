@@ -3,6 +3,8 @@
 ## Introduction
 A simple online judge (not recommend for public use).
 
+Tested on Python 3.9.6 (Mac), and it should work on other major platforms with Python 3.x.
+
 ## Prepare your problem
 Provide two functions in `problem.py`. The original `problem.py` contains an example.
 
